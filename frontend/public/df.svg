@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <!-- Fondo del diario -->
+  <rect x="20" y="20" width="216" height="216" fill="#ffebcd" stroke="#8b4513" stroke-width="4"/>
+  <!-- Líneas del diario -->
+  <line x1="40" y1="60" x2="216" y2="60" stroke="#8b4513" stroke-width="2"/>
+  <line x1="40" y1="90" x2="216" y2="90" stroke="#8b4513" stroke-width="2"/>
+  <line x1="40" y1="120" x2="216" y2="120" stroke="#8b4513" stroke-width="2"/>
+  <line x1="40" y1="150" x2="216" y2="150" stroke="#8b4513" stroke-width="2"/>
+  <line x1="40" y1="180" x2="216" y2="180" stroke="#8b4513" stroke-width="2"/>
+  <line x1="40" y1="210" x2="216" y2="210" stroke="#8b4513" stroke-width="2"/>
+  <!-- Ilustración de un lápiz -->
+  <polygon points="150,230 160,230 165,220 145,220" fill="#d3d3d3" stroke="#000" stroke-width="1"/>
+  <rect x="146" y="220" width="18" height="10" fill="#ffff00" stroke="#000" stroke-width="1"/>
+  <polygon points="150,230 145,240 160,240 155,230" fill="#d3d3d3" stroke="#000" stroke-width="1"/>
+</svg>
