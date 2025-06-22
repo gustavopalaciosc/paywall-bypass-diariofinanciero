@@ -11,13 +11,16 @@ interface SearchBoxProps {
 
 export default function SearchBox({ getArticle, loading }: SearchBoxProps) {
   const [url, setUrl] = useState<string>("");
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   const handleSearch = () => {
+    setErrorMessage("");
     if (url.trim() !== "") {
       getArticle(url); 
     } else {
-      console.log("URL no válida");
+      setErrorMessage("URL no válida");
     }
+    setUrl("");
   };
 
   return (
@@ -32,12 +35,20 @@ export default function SearchBox({ getArticle, loading }: SearchBoxProps) {
         </p>
       </div>
 
-      <div className="flex-1 bg-white p-6 flex flex-col sm:flex-row items-center gap-4">
-        <SearchBar setUrl={setUrl} />
-        <Button 
-          text={loading? "Extrayendo..." : "Extraer"}
-          click={handleSearch} 
-        /> 
+      <div className="flex-1 bg-white p-6 flex flex-col items-center space-y-2">
+        <div className="flex flex-col sm:flex-row w-full gap-4">
+          <SearchBar 
+            url={url}
+            setUrl={setUrl} 
+            />
+          <Button 
+            text={loading? "Extrayendo..." : "Extraer"}
+            click={handleSearch} 
+          /> 
+        </div>
+        <div>
+          <p className="text-sm text-red-600">{errorMessage}</p>
+        </div>
       </div>
     </div>
   );

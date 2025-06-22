@@ -1,8 +1,11 @@
-interface SearchBarProps {
+
+type SearchBarProps = {
+  url: string;
   setUrl: (url: string) => void;  
 }
 
-const SearchBar = ({ setUrl }: SearchBarProps) => {
+const SearchBar = ({ url, setUrl }: SearchBarProps) => {
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUrl(event.target.value);  
   };
@@ -10,6 +13,7 @@ const SearchBar = ({ setUrl }: SearchBarProps) => {
   return (
     <input
       type="text"
+      value={url}
       placeholder="https://www.df.cl/..."
       className="flex-1 border border-gray-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-orange-400"
       onChange={handleChange}  
