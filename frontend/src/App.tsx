@@ -13,7 +13,7 @@ function App() {
     isLoading(true);
     try {
       const data = { url }; 
-      const response = await axios.post("http://127.0.0.1:8000/article/", data);
+      const response = await axios.post(`https://paywall-bypass-diariofinanciero.onrender.com/article/`, data);
       setArticleData(response.data); 
       console.log(response.data);
     } catch (error) {
