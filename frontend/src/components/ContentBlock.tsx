@@ -1,19 +1,30 @@
-import CopyButton from "./CopyButton";
+interface ContentBlockProps {
+  articleData: any;  
+}
 
-export default function ContentBlock() {
-  const contentText =
-    "Este es un ejemplo de contenido extraído que tiene mucho texto para asegurarse de que todo el contenido se muestre en un solo contenedor y no se desborde horizontalmente. Puedes agregar más texto aquí para probar cómo se maneja el desbordamiento y la capacidad de desplazamiento. Si hay mucho texto, se mostrará de manera vertical y si el contenido excede la altura disponible, aparecerá una barra de desplazamiento. Es importante probar con textos largos para verificar la apariencia en pantallas pequeñas o grandes.";
+export default function ContentBlock({ articleData }: ContentBlockProps) {
+  if (!articleData) return null; 
 
   return (
     <div className="h-50 w-full flex flex-col overflow-hidden rounded-md shadow-lg border-[1px] border-yellow-300">
       <div className="flex-1 bg-yellow-200 text-black p-6 flex justify-between items-center">
         <h1 className="text-sm md:text-xl font-semibold">Contenido extraído</h1>
-        <CopyButton />
       </div>
-      <div className="flex-1 bg-white p-6 flex flex-col sm:flex-row items-center gap-4 overflow-y-auto">
-        <p className="text-sm md:text-base whitespace-pre-wrap max-w-full">
-          {contentText}
-        </p>
+      <div className="flex-1 bg-white p-6 lg:px-28 flex flex-col items-center gap-4 overflow-y-auto">
+        <h2 className="text-xl md:text-3xl font-semibold">{articleData.title}</h2>
+        <p className="text-sm md:text-xl">{articleData.subtitle}</p>
+        <img
+          src={articleData.image_url}
+          alt="Article Image"
+          className="w-full md:w-2/3 h-auto mt-4 rounded-lg"
+        />
+        <div className="w-full">
+          {articleData.body.map((text: string, index: number) => (
+            <p key={index} className="text-sm md:text-base whitespace-pre-wrap mb-4">
+              {text}
+            </p>
+          ))}
+        </div>
       </div>
     </div>
   );
