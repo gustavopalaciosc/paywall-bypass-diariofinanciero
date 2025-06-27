@@ -29,7 +29,7 @@ function App() {
         <span className="text-[#f87903]">Diario</span> Financiero
       </h1>
       <p className="text-xs md:text-lg text-gray-800">
-        Extrae contenido del Diario Financiero de manera gratuita.
+        Extrae contenido del <a href="https://www.df.cl" className="text-[#ff9028] font-semibold">Diario Financiero</a> de manera gratuita.
       </p>
       <SearchBox 
         loading={loading}
