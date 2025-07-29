@@ -36,7 +36,6 @@ async def health_check():
 
 @app.post("/article/", response_model=ArticleResponse)
 async def get_article(data: ArticleUrl):
-    print(data.url)
     article = await article_scrapper(url=data.url)
     return article
 
